@@ -18,7 +18,11 @@
   },
   "homepage": "https://github.com/mgsainyinyitun/e-commerce#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.11.15"
   },
   "devDependencies": {
     "eslint": "^7.20.0",
