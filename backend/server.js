@@ -3,10 +3,16 @@ import express from "express";
 import mongoose from "mongoose";
 import productRouter from "./routers/productRouter.js";
 import userRouter from "./routers/userRouter.js";
+import dotenv from 'dotenv';
 // mongodb://localhost/amazona
 // mongodb://127.0.0.1/my_database
 
+dotenv.config();
+
 const app = express();
+app.use(express.json()); // add new middleware parse json
+app.use(express.urlencoded({extended:true}));
+
 // mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost/amazona", {
 //   useNewUrlParser: true,
 //   useUnifiedTopology: true,
