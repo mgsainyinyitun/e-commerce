@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import productRouter from "./routers/productRouter.js";
 import userRouter from "./routers/userRouter.js";
 import dotenv from 'dotenv';
+import orderRouter from "./routers/orderRouter.js";
 // mongodb://localhost/amazona
 // mongodb://127.0.0.1/my_database
 
@@ -39,10 +40,20 @@ mongoose
 
 app.use('/api/users',userRouter);
 app.use('/api/products',productRouter);
+app.use('/api/orders',orderRouter);
+app.get('/api/config/paypal',(req,res) => {
+  res.send(process.env.PAYPAL_CLIENT_ID || 'sb');
+})
 
 app.get("/", (req, res) => {
   res.send("Server is ready");
 });
+
+
+app.get('/test',(req,res) => {
+  console.log("Server is able to connect:::");
+  res.send({message:'Server is Ready'})
+})
 
 const port = process.env.PORT || 5000;
 
